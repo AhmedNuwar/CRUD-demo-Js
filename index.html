@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+  </head>
+  <body  class="bg-success">
+    
+    <section>
+      <div class="container bg-success-subtle my-5 py-5 px-4 rounded-5 w-75 shadow">
+        <h1 class="text-center text-uppercase">CRUD System</h1>
+        <div class="inputsData">
+          <div>
+            <input type="hidden" id="productId">
+          </div>
+          <div>
+            <label for="ProductName" class="d-block ">Enter Product Name</label>
+            <input
+              type="text"
+              id="ProductName"
+              class="w-100 form-control"
+              placeholder="Enter Product Name"
+              oninput="validate('name')"
+            />
+            <div class="alert alert-danger mt-2 d-none" id="nameAlert">
+              Product Name must be from 4 to 8 letter and first letter in uppercase
+            </div>
+          </div>
+          <div>
+            <label for="ProductPrice" class="d-block "
+              >Enter Product Price</label>
+            <input
+              type="text"
+              id="ProductPrice"
+              class="w-100 form-control"
+              placeholder="Enter Product Price"
+              oninput="validate('price')"
+            />
+            <div class="alert alert-danger mt-2 d-none" id="priceAlert">
+              Product Price must be from 1000 to 10000
+            </div>
+          </div>
+          <div>
+            <label for="ProductType" class="d-block ">Enter Product Type</label>
+            <input
+              type="text"
+              id="ProductType"
+              class="w-100 form-control"
+              placeholder="Enter Product Type"
+              oninput="validate('type')"
+            />
+            <div class="alert alert-danger mt-2 d-none" id="typeAlert">
+              Product Type must be Mobile, Watch or Screen
+            </div>
+          </div>
+          <div>
+            <label for="ProductDesc" class="d-block ">Enter Product Description</label>
+            <!-- <input
+              type="text"
+              id="ProductDesc"
+              class="w-100 form-control"
+              placeholder="Enter Product Description"
+              oninput="validate('descrption')"
+            /> -->
+            <textarea 
+            id="ProductDesc" 
+            rows="3"
+            cols="30";
+            class="w-100 form-control"
+            placeholder="Enter Product Description"
+            oninput="validate('descrption')"></textarea>
+            <div class="alert alert-danger mt-2 d-none" id="descrptionAlert">
+              Product Description must be from 3 to 500 letter
+            </div>
+          </div>
+
+          <button
+            id="addButton"
+            onclick="addProduct()"
+            class="btn btn-outline-success mx-auto d-block w-75 mt-3 rounded-pill">
+            Add Product
+          </button>
+          <button
+            id="updateButton"
+            class="btn btn-outline-success mx-auto d-none w-75 mt-3 rounded-pill"
+            onclick="postUpdateProduct()">
+            Update Product
+          </button>
+        </div>
+
+        <input
+          type="search"
+          id="searchInput"
+          class="form-control  d-block mx-auto my-4 rounded-pill"
+          placeholder="Search Product"
+          oninput="search()"
+        />
+
+        <div class="table-container rounded-4 overflow-hidden bg-white shadow"> 
+          <table class="table m-0 ">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">price</th>
+                <th scope="col">type</th>
+                <th scope="col">description</th>
+                <th scope="col">actions</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
